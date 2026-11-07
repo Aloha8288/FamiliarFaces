@@ -1,0 +1,115 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-mono: 'Fredoka Variable', 'Fredoka', ui-rounded, 'Nunito', system-ui, sans-serif;
+  --font-sans: 'Inter Variable', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  --color-cream: #f6f1e7;
+  --color-paper: #fcfaf5;
+  --color-sand: #ece4d3;
+  --color-line: #e2dac8;
+  --color-ink: #2c3127;
+  --color-ink-soft: #545b4d;
+  --color-muted: #7c8273;
+
+  --color-sage-50: #f1f4ee;
+  --color-sage-100: #e2e9dd;
+  --color-sage-200: #c8d5c0;
+  --color-sage-300: #a9bd9f;
+  --color-sage-400: #8ea683;
+  --color-sage-500: #779169;
+  --color-sage-600: #5f7854;
+  --color-sage-700: #4b5f43;
+  --color-sage-800: #3a4a35;
+  --color-sage-900: #2b3728;
+
+  --color-olive-100: #ebe9d6;
+  --color-olive-300: #c3bf91;
+  --color-olive-500: #8b8650;
+  --color-olive-700: #5f5b33;
+
+  --color-clay-100: #f4e6dc;
+  --color-clay-300: #ddb69b;
+  --color-clay-500: #b9805f;
+  --color-clay-700: #8a5638;
+
+  --color-rose-soft: #f6e3df;
+  --color-rose-deep: #9c4a3d;
+
+  --radius-card: 1.25rem;
+
+  --animate-fade-up: fade-up 0.45s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  --animate-fade-in: fade-in 0.3s ease-out both;
+  --animate-scale-in: scale-in 0.22s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  --animate-scan: scan 1.3s ease-in-out infinite;
+
+  @keyframes scan {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(164px); }
+  }
+
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes scale-in {
+    from { opacity: 0; transform: scale(0.97) translateY(6px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
+  }
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    @apply bg-cream text-ink font-sans;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+  h1, h2, h3, h4 {
+    @apply font-mono text-ink;
+    letter-spacing: 0;
+    line-height: 1.2;
+  }
+  ::selection {
+    background: var(--color-sage-200);
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-sage-600);
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+  input[type='date']::-webkit-calendar-picker-indicator,
+  input[type='time']::-webkit-calendar-picker-indicator {
+    opacity: 0.55;
+    cursor: pointer;
+  }
+}
+
+@layer components {
+  .field-input {
+    @apply w-full rounded-xl border border-line bg-paper px-3.5 py-2.5 text-[15px] text-ink placeholder:text-muted/70 transition
+      hover:border-sage-300 focus:border-sage-500 focus:outline-none focus:ring-4 focus:ring-sage-100;
+  }
+  .label-mono {
+    @apply font-mono text-[11px] font-medium uppercase tracking-[0.12em] text-muted;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Fredoka sets a narrow word space; open it up slightly for readability. */
+h1, h2, h3, h4, .font-mono, .label-mono {
+  word-spacing: 0.14em;
+}
