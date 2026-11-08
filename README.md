@@ -40,26 +40,26 @@ A 3-step process:
 #### Step 3: Terms and conditions
 - Student must read the terms and conditions provided and check off the agreement box
 
-
+##
 ### Onboarding for families
+- User will need to fill out their contact details, and then the basic information of their loved one
+- They then will fill out their interests, companion preferences, communication preferences, mobility, visit times, and topics that should be avoided
 
-
-
-
+##
 ### Finding a companion or volunteer
+- Families browse the dashboard for volunteers that are ranked by compatibility
 
 
 
-
-
+##
 ### Companion commitment
 
 
-
+##
 ### How visits, check-ins, and hours work
 
-
+##
 ### Visit journaling
 
-
+##
 ### Maintaining privacy
