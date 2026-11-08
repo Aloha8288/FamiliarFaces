@@ -191,9 +191,13 @@ FamiliarFaces was built in one hackathon weekend as a demo, so some parts are si
 ## Credits
 ### Team
 Addison Van Oostrom
+
 Adria Ybema
+
 Lainey Choma
+
 Madeleine Wilson
+
 Mariya Fedorova
 ##
 ### Open-Source Tools
