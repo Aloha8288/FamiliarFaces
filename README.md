@@ -217,4 +217,4 @@ Code was written with help from Claude (Anthropic), an AI assistant, during the 
 ## 
 ### Content
  
-All residents, volunteers, and families in the app are fictional. 
+All residents, volunteers, and families in the app are fictional. The complete app will be functional for real families to use.
