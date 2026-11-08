@@ -48,12 +48,17 @@ A 3-step process:
 ##
 ### Finding a companion or volunteer
 - Families browse the dashboard for volunteers that are ranked by compatibility
-
-
+- Shared interests and availability are shown
+- Families can invite volunteers that they are interested in
+- Volunteers browse the dashboard for patients in the same way
+- They can send interest requests which go to the family for approval
+- Invitations and requests can be then accepted, starting a Companion Commitment
 
 ##
 ### Companion commitment
-
+- Once a volunteer is committed to a patient, they are now companions
+- A commitment card will show the match, the date the match happened, the weekly visit goals, the number of visits completed that week, what day the next visit is, the total number of visits, and the number of approved hours
+- 
 
 ##
 ### How visits, check-ins, and hours work
