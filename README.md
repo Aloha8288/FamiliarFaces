@@ -15,7 +15,7 @@ For families affected by dementia, maintaining connections can be a difficult pa
 
 
 ##
-## Why Choose Familiar Faces?
+## Why Choose FamiliarFaces?
 
 Traditional volunteering programs for elderly care exist, but they’re built around shifts rather than relationships: a volunteer comes for an hour, and next week it might be someone completely different. FamiliarFaces directly matches loved ones to student volunteers through our algorithm based on interests, compatibility, and availability, so that a familiar face keeps coming back. Families choose who visits, can follow along through a shared visit journal, and they approve every volunteer hour. 
 
@@ -29,15 +29,17 @@ Traditional volunteering programs for elderly care exist, but they’re built ar
 - If returning to the app, you would be sent straight to the dashboard
 
 ### Onboarding for students
-A five-step wizard with a progress bar:
- 
-| Step | Screen | What the student provides |
-|------|--------|---------------------------|
-| 1 | Volunteer Verification | Vulnerable Sector Check upload (PDF, JPG, PNG) and a six-lesson orientation covering dementia awareness, respectful communication, privacy, boundaries, safety, and reporting concerns |
-| 2 | Personal Information | Name, email, phone, date of birth (age calculated automatically; must be 18+), school, program, year, optional photo |
-| 3 | Interests & Languages | Interests (31 options plus custom entries), personality traits, languages with fluency levels |
-| 4 | Availability | A weekly schedule with Morning / Afternoon / Evening presets or custom time windows, visits per week, visit length |
-| 5 | Terms & Conditions | Agreement checkbox |
+A 3-step process:
+
+Step 1: Volunteer verification
+- Student needs to upload a Vulnerable Sector Check file and complete a six lesson orientation that covers dementia awareness and safety, communication, privacy, and boundaries
+Step 2: Creating a profile
+- Student enters their full name, email, phone number, date of birth, school, program, school  year, and an optional profile photo
+- They then fill out their interests, personality traits, and language skills
+- Finally, they fill out their availability on a weekly schedule, customizing the times of day they are free, the number of visits per week, and the length of each visit they would prefer
+Step 3: Terms and conditions
+- Student must read the terms and conditions provided and check off the agreement box
+
 
 
 
