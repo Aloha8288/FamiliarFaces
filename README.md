@@ -58,13 +58,21 @@ A 3-step process:
 ### Companion commitment
 - Once a volunteer is committed to a patient, they are now companions
 - A commitment card will show the match, the date the match happened, the weekly visit goals, the number of visits completed that week, what day the next visit is, the total number of visits, and the number of approved hours
-- 
+- Past visits will be stored in visit history
 
 ##
 ### How visits, check-ins, and hours work
-
+- Visits get scheduled based on suggested times related to both people's availability
+- When volunteers check in, they start a visit timer
+- When volunteers check out, they gain access to the visit log and have a record of this meeting
+- Once a visit is complete, families have the option to then approve, dispute, or add a note to the volunteers visit. 
 ##
 ### Visit journaling
-
+- Using the visit log, students can make notes of what they talked about in their meeting sessions after it takes place
+- They can record how the patient seemed and what they enjoyed
+- This allows them to maintain a record of things to keep in mind for future sessions
+- Families also gain access to this
 ##
 ### Maintaining privacy
+- When the family adds the topics to avoid section to their loved ones profile, students do not get access to this right away
+- They gain access once the family has accepted them as a companion
