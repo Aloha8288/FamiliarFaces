@@ -1,0 +1,17 @@
+# Dependencies
+node_modules/
+
+# Build files
+dist/
+*.tsbuildinfo
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Mac files
+.DS_Store
+
+# Logs
+*.log
