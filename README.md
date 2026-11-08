@@ -76,3 +76,15 @@ A 3-step process:
 ### Maintaining privacy
 - When the family adds the topics to avoid section to their loved ones profile, students do not get access to this right away
 - They gain access once the family has accepted them as a companion
+- The private notes a family makes are only visible to that family.
+- Any medical details will never be used in calculating the compatibility score
+
+##
+## How Our App Works
+```
+Student:  Sign up → Verify (VSC + training) → Build profile → Find a Companion
+          → Request → Accepted → Schedule → Check in / out → Journal → Hours approved
+ 
+Family:   Sign up → Create loved one's profile → Find a Volunteer or review requests
+          → Accept → Follow visits & journal → Approve hours
+```
