@@ -1,13 +1,12 @@
 import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { NavLink, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import {
-  BookHeart, CalendarClock, ChevronDown, HandHeart, Heart, Inbox, LayoutDashboard, LifeBuoy, LogOut, Menu, Repeat, Search,
-  Settings, UserRound, UsersRound, X, ClipboardCheck,
+  BookHeart, CalendarClock, ChevronDown, HandHeart, Heart, Inbox, LayoutDashboard, LifeBuoy, LogOut, Menu, Search,
+  Settings, UserRound, X, ClipboardCheck,
 } from 'lucide-react';
 import { useStore, useFamilyView, useStudentView } from '../lib/store';
-import { DEMO_FAMILY_EMAIL, DEMO_STUDENT_EMAIL } from '../lib/seed';
 import { Logo } from './Logo';
-import { Avatar, cx, useToast } from './ui';
+import { Avatar, cx } from './ui';
 
 interface NavItem { to: string; label: string; icon: ReactNode; badge?: number }
 
@@ -74,8 +73,7 @@ function Sidebar({ onNavigate }: { onNavigate?: () => void }) {
 }
 
 function AccountMenu() {
-  const { user, signOut, switchToDemo, data } = useStore();
-  const toast = useToast();
+  const { user, signOut, data } = useStore();
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -89,12 +87,6 @@ function AccountMenu() {
 
   if (!user) return null;
   const go = (path: string) => { setOpen(false); navigate(path); };
-  const swap = (which: 'student' | 'family') => {
-    setOpen(false);
-    switchToDemo(which);
-    navigate(which === 'student' ? '/student' : '/family');
-    toast(which === 'student' ? 'Switched to Alex (Student Volunteer)' : 'Switched to Sarah (Family Member)', 'info');
-  };
 
   return (
     <div className="relative" ref={ref}>
@@ -115,11 +107,6 @@ function AccountMenu() {
           </div>
           <div className="p-1.5">
             <MenuItem icon={<Settings className="h-4 w-4" />} onClick={() => go('/settings')}>Account Settings</MenuItem>
-          </div>
-          <div className="border-t border-line/70 p-1.5">
-            <p className="label-mono px-3 pb-1 pt-2">Switch Account</p>
-            <MenuItem icon={<Repeat className="h-4 w-4" />} onClick={() => swap('student')} disabled={user.email === DEMO_STUDENT_EMAIL}>Alex · Student Volunteer</MenuItem>
-            <MenuItem icon={<UsersRound className="h-4 w-4" />} onClick={() => swap('family')} disabled={user.email === DEMO_FAMILY_EMAIL}>Sarah · Family Member</MenuItem>
           </div>
           <div className="border-t border-line/70 p-1.5">
             <MenuItem icon={<LogOut className="h-4 w-4" />} onClick={() => { setOpen(false); signOut(); navigate('/'); }}>Sign Out</MenuItem>

@@ -1,17 +1,14 @@
 import { useState } from 'react';
 import { BookOpenCheck, Check, FileCheck2, Inbox, Languages, Quote, X } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
-import { Repeat, Undo2, UserCheck } from 'lucide-react';
+import { Undo2, UserCheck } from 'lucide-react';
 import { useStore, useFamilyView } from '../../lib/store';
-import { DEMO_STUDENT_EMAIL } from '../../lib/seed';
 import { computeMatch, explainForFamily, scoreTone } from '../../lib/matching';
 import { calculateAge, fmtDate } from '../../lib/time';
 import { Avatar, Badge, Button, Card, CardHeader, EmptyState, Field, Modal, Notice, PageHeader, Textarea, useToast } from '../../components/ui';
 import { MatchBreakdown, ScoreRing, residentFirst } from '../../components/domain';
 
 export default function CompanionRequests() {
-  const { data, decideRequest, withdrawRequest, switchToDemo } = useStore();
-  const navigate = useNavigate();
+  const { data, decideRequest, withdrawRequest } = useStore();
   const fv = useFamilyView();
   const toast = useToast();
   const [declining, setDeclining] = useState<string | null>(null);
@@ -106,7 +103,6 @@ export default function CompanionRequests() {
             <div className="divide-y divide-line/70">
               {sent.map((req) => {
                 const s = data.students[req.studentId];
-                const u = data.users.find((x) => x.id === req.studentId);
                 if (!s) return null;
                 return (
                   <div key={req.id} className="flex flex-col gap-3 px-6 py-4 sm:flex-row sm:items-center sm:justify-between">
@@ -115,11 +111,7 @@ export default function CompanionRequests() {
                       <div><p className="text-[14px] font-medium">{s.fullName}</p><p className="text-[12.5px] text-muted">Invited {fmtDate(req.createdAt)}</p></div>
                     </div>
                     <div className="flex flex-wrap gap-2">
-                      {u?.email === DEMO_STUDENT_EMAIL ? (
-                        <Button size="sm" variant="soft" icon={<Repeat className="h-3.5 w-3.5" />} onClick={() => { switchToDemo('student', '/student'); navigate('/student'); toast('Switched to Alex to respond.', 'info'); }}>Respond as Alex</Button>
-                      ) : u?.isSimulated ? (
-                        <Button size="sm" variant="soft" icon={<UserCheck className="h-3.5 w-3.5" />} onClick={() => { const res = decideRequest(req.id, true, 'Simulated volunteer acceptance'); if (res.ok) toast(`${s.fullName.split(' ')[0]} accepted (simulated). ${name}'s Companion Commitment has begun!`); else toast(res.error, 'error'); }}>Simulate Acceptance</Button>
-                      ) : null}
+                      <Button size="sm" variant="soft" icon={<UserCheck className="h-3.5 w-3.5" />} onClick={() => { const res = decideRequest(req.id, true, 'Simulated acceptance'); if (res.ok) toast(`${s.fullName.split(' ')[0]} accepted. ${name}'s Companion Commitment has begun!`); else toast(res.error, 'error'); }}>Simulate Acceptance</Button>
                       <Button size="sm" variant="ghost" icon={<Undo2 className="h-3.5 w-3.5" />} onClick={() => { withdrawRequest(req.id); toast('Invitation withdrawn.', 'info'); }}>Withdraw</Button>
                     </div>
                   </div>

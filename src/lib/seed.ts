@@ -17,7 +17,7 @@ export function demoHash(input: string): string {
 }
 
 export const DEMO_PASSWORD = 'demo1234';
-export const DATA_VERSION = 5;
+export const DATA_VERSION = 6;
 
 const PM = { start: '13:00', end: '17:00' };
 const AM = { start: '09:00', end: '12:00' };
@@ -55,8 +55,6 @@ const FICTIONAL_VOLUNTEERS: {
     personality: ['Gentle', 'Calm', 'Creative', 'Good Listener'], availability: week({ 0: [AM], 1: [AM], 3: [PM], 4: [PM] }), visitsPerWeek: 2, duration: 45 },
 ];
 
-export const DEMO_STUDENT_EMAIL = 'alex@familiarfaces.ca';
-export const DEMO_FAMILY_EMAIL = 'sarah@familiarfaces.ca';
 
 export function blankStudent(userId: string, email: string): StudentProfile {
   return {
@@ -91,46 +89,8 @@ export function createSeedData(): AppData {
   const now = new Date();
   const created = new Date(now.getTime() - 1000 * 60 * 60 * 24 * 12).toISOString();
 
-  const users: User[] = [
-    {
-      id: 'user-alex', email: DEMO_STUDENT_EMAIL, passwordHash: demoHash(DEMO_PASSWORD), role: 'student',
-      displayName: 'Alex Rivera', onboarded: true, createdAt: created, isDemo: true,
-    },
-    {
-      id: 'user-sarah', email: DEMO_FAMILY_EMAIL, passwordHash: demoHash(DEMO_PASSWORD), role: 'family',
-      displayName: 'Sarah Thompson', onboarded: true, createdAt: created, isDemo: true,
-    },
-  ];
-
-  const alex: StudentProfile = {
-    ...blankStudent('user-alex', DEMO_STUDENT_EMAIL),
-    step: 5,
-    vscFileName: 'vulnerable-sector-check.pdf',
-    vscSubmittedAt: created,
-    trainingCompletedAt: created,
-    fullName: 'Alex Rivera',
-    phone: '(780) 555-0199',
-    dob: '2004-05-21',
-    university: 'University of Alberta',
-    program: 'Nursing',
-    yearOfStudy: '2nd Year',
-    languages: [
-      { language: 'English', fluency: 'Fluent' },
-      { language: 'Spanish', fluency: 'Conversational' },
-    ],
-    interests: ['Gardening', 'Music', 'Baking', 'Board Games', 'Reading', 'Walking', 'Movies', 'Cooking', 'Storytelling', 'Card Games'],
-    personality: ['Patient', 'Warm', 'Good Listener', 'Calm'],
-    availability: week({
-      1: [{ start: '13:00', end: '17:00' }],
-      2: [{ start: '12:30', end: '16:00' }],
-      4: [{ start: '09:00', end: '12:00' }],
-      5: [{ start: '10:00', end: '16:00' }],
-    }),
-    visitsPerWeek: 2,
-    visitDuration: 60,
-    preferredArea: 'Any',
-    termsAcceptedAt: created,
-  };
+  // No premade sign-in accounts: only browsable volunteer profiles.
+  const users: User[] = [];
 
   const volunteers = FICTIONAL_VOLUNTEERS.map((v) => {
     const id = `user-${v.key}`;
@@ -147,7 +107,7 @@ export function createSeedData(): AppData {
   return {
     version: DATA_VERSION,
     users,
-    students: { 'user-alex': alex, ...Object.fromEntries(volunteers) },
+    students: Object.fromEntries(volunteers),
     residents: SEED_RESIDENTS.map((r) => ({ ...r })),
     requests: [],
     commitments: [],

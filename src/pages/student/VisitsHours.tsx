@@ -1,5 +1,5 @@
-import { useEffect, useMemo, useState } from 'react';
-import { CalendarClock, CalendarPlus, History, LogIn, LogOut, Search, Star, X } from 'lucide-react';
+import { useEffect, useMemo, useRef, useState } from 'react';
+import { UserCheck, CalendarClock, CalendarPlus, History, LogIn, LogOut, Search, Star, X } from 'lucide-react';
 import { useStore, useStudentView } from '../../lib/store';
 import { DEMO_CHECKIN_CODE, DURATIONS } from '../../lib/options';
 import { combineDateTime, fmtDuration, fmtHours, fmtTime, formatClock, mondayIndex, overlapWindows, toLocalDateInput, toMinutes, fromMinutes } from '../../lib/time';
@@ -177,10 +177,14 @@ function SchedulePanel() {
 }
 
 export default function VisitsHours() {
-  const { cancelVisit } = useStore();
+  const { cancelVisit, reviewVisit } = useStore();
   const sv = useStudentView();
   const toast = useToast();
-  const [tab, setTab] = useState<'upcoming' | 'completed'>('upcoming');
+  const completedCount = sv.myVisits.filter((v) => v.status === 'completed').length;
+  const [tab, setTab] = useState<'upcoming' | 'completed'>(() => (sv.myVisits.some((v) => v.approval === 'pending') ? 'completed' : 'upcoming'));
+  // Show the completed list right after a visit is logged, so it can be approved.
+  const prevCompleted = useRef(completedCount);
+  useEffect(() => { if (completedCount > prevCompleted.current) setTab('completed'); prevCompleted.current = completedCount; }, [completedCount]);
   const [cancelId, setCancelId] = useState<string | null>(null);
 
   if (!sv.commitment || !sv.resident) {
@@ -223,7 +227,13 @@ export default function VisitsHours() {
                 actions={<Button size="sm" variant="ghost" icon={<X className="h-3.5 w-3.5" />} onClick={() => setCancelId(v.id)}>Cancel</Button>} />
             )) : <EmptyState icon={<CalendarClock className="h-5 w-5" />} title="Nothing Scheduled Yet" body="Pick a suggested time above to plan your next visit." />)}
             {tab === 'completed' && (completed.length ? completed.map((v) => (
-              <VisitRow key={v.id} v={v} title={`Visit with ${name}`}>
+              <VisitRow key={v.id} v={v} title={`Visit with ${name}`}
+                actions={v.approval === 'pending' ? (
+                  <Button size="sm" variant="soft" icon={<UserCheck className="h-3.5 w-3.5" />}
+                    onClick={() => { reviewVisit(v.id, 'approved'); toast(`${fmtHours(v.minutes)} approved.`); }}>
+                    Simulate Approval
+                  </Button>
+                ) : undefined}>
                 {(v.studentNote || v.familyNote) && (
                   <div className="mt-3 space-y-1.5 border-t border-line/60 pt-3 text-[13px]">
                     {v.studentNote && <p className="text-ink-soft"><span className="font-medium text-ink">Your note:</span> {v.studentNote}</p>}

@@ -28,7 +28,7 @@ export default function FindVolunteer() {
     return Object.values(data.students)
       .filter((s) => onboarded.has(s.userId) && s.fullName.trim())
       .map((s) => ({ s, match: computeMatch(s, r) }))
-      .sort((a, b) => Number(b.s.userId === 'user-alex') - Number(a.s.userId === 'user-alex') || b.match.total - a.match.total || a.s.fullName.localeCompare(b.s.fullName));
+      .sort((a, b) => b.match.total - a.match.total || a.s.fullName.localeCompare(b.s.fullName));
   }, [data.students, data.users, r]);
 
   const shown = volunteers.filter(({ s }) => {

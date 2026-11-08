@@ -1,8 +1,7 @@
 import { useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Clock, Mail, Repeat, Send, Undo2, UserCheck } from 'lucide-react';
+import { Clock, Mail, Send, Undo2, UserCheck } from 'lucide-react';
 import { useStore, useStudentView } from '../../lib/store';
-import { DEMO_FAMILY_EMAIL } from '../../lib/seed';
 import { computeMatch } from '../../lib/matching';
 import type { Resident } from '../../lib/types';
 import { fmtDate } from '../../lib/time';
@@ -68,7 +67,7 @@ export function RequestModal({ resident, open, onClose }: { resident: Resident |
 
 /** Pending requests with presentation-friendly ways to get a family response. */
 export function PendingRequests() {
-  const { data, withdrawRequest, decideRequest, switchToDemo } = useStore();
+  const { data, withdrawRequest, decideRequest } = useStore();
   const { requests } = useStudentView();
   const navigate = useNavigate();
   const toast = useToast();
@@ -116,8 +115,6 @@ export function PendingRequests() {
         {[...pending, ...recentDeclined].map((req) => {
           const r = data.residents.find((x) => x.id === req.residentId);
           if (!r) return null;
-          const family = r.familyUserId ? data.users.find((u) => u.id === r.familyUserId) : null;
-          const isDemoFamily = family?.email === DEMO_FAMILY_EMAIL;
           return (
             <div key={req.id} className="flex flex-col gap-3 px-5 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6">
               <div className="flex items-center gap-3">
@@ -130,16 +127,10 @@ export function PendingRequests() {
               {req.status === 'pending' ? (
                 <div className="flex flex-wrap items-center gap-2">
                   <Badge tone="olive">Pending</Badge>
-                  {isDemoFamily ? (
-                    <Button size="sm" variant="soft" icon={<Repeat className="h-3.5 w-3.5" />} onClick={() => { switchToDemo('family', '/family/requests'); navigate('/family/requests'); toast('Switched to Sarah to review the request.', 'info'); }}>
-                      Respond as Sarah
-                    </Button>
-                  ) : !family ? (
-                    <Button size="sm" variant="soft" icon={<UserCheck className="h-3.5 w-3.5" />}
-                      onClick={() => { const res = decideRequest(req.id, true, 'Simulated family acceptance'); if (res.ok) toast(`${residentFirst(r)}'s family accepted (simulated). Your commitment has begun!`); else toast(res.error, 'error'); }}>
-                      Simulate Family Acceptance
-                    </Button>
-                  ) : null}
+                  <Button size="sm" variant="soft" icon={<UserCheck className="h-3.5 w-3.5" />}
+                    onClick={() => { const res = decideRequest(req.id, true, 'Simulated acceptance'); if (res.ok) toast(`Accepted! Your Companion Commitment with ${residentFirst(r)} has begun.`); else toast(res.error, 'error'); }}>
+                    Simulate Acceptance
+                  </Button>
                   <Button size="sm" variant="ghost" icon={<Undo2 className="h-3.5 w-3.5" />} onClick={() => { withdrawRequest(req.id); toast('Request withdrawn.', 'info'); }}>Withdraw</Button>
                 </div>
               ) : <Badge tone="neutral">Declined</Badge>}

@@ -1,6 +1,6 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import type { AppData, Commitment, Mood, Resident, Role, StudentProfile, User, Visit } from './types';
-import { blankStudent, createSeedData, demoHash, DATA_VERSION, DEMO_FAMILY_EMAIL, DEMO_STUDENT_EMAIL } from './seed';
+import { blankStudent, createSeedData, demoHash, DATA_VERSION } from './seed';
 import { blankResident } from './residents';
 import { isSameWeek } from './time';
 import { DEMO_CHECKIN_CODE } from './options';
@@ -86,7 +86,7 @@ function useStoreValue() {
     if (!password) return fail('Please enter a password.');
     // Demo sign-in: any valid email and any password works.
     // A returning email opens its saved account; a new email starts a fresh account.
-    const u = dataRef.current.users.find((x) => x.email === e);
+    const u = dataRef.current.users.find((x) => x.email === e && !x.isSimulated);
     if (!u) return register(e, password, '');
     mutate((d) => { d.sessionUserId = u.id; });
     return ok(u.id);
@@ -98,24 +98,6 @@ function useStoreValue() {
     mutate((d) => { d.sessionUserId = null; });
   };
 
-  const switchToDemo = (which: 'student' | 'family', landing?: string) => {
-    nextPathRef.current = landing ?? (which === 'student' ? '/student' : '/family');
-    setTimeout(() => { nextPathRef.current = null; }, 1000);
-    const email = which === 'student' ? DEMO_STUDENT_EMAIL : DEMO_FAMILY_EMAIL;
-    let target = dataRef.current.users.find((u) => u.email === email);
-    if (!target) {
-      // Demo account was somehow removed — restore it from seed without touching other data.
-      const seed = createSeedData();
-      target = seed.users.find((u) => u.email === email)!;
-      const seedUser = target;
-      mutate((d) => {
-        d.users.push(seedUser);
-        if (which === 'student') d.students[seedUser.id] = seed.students[seedUser.id];
-      });
-    }
-    const id = target.id;
-    mutate((d) => { d.sessionUserId = id; });
-  };
 
   const setRole = (role: Role) => {
     if (!user) return;
@@ -379,7 +361,7 @@ function useStoreValue() {
 
   return {
     data, user, storageWarning,
-    register, signIn, signOut, switchToDemo, peekNextPath, setRole, updateAccount, completeOnboarding,
+    register, signIn, signOut, peekNextPath, setRole, updateAccount, completeOnboarding,
     saveStudent, saveResident,
     requestCompanion, inviteVolunteer, withdrawRequest, decideRequest, updateCommitmentGoal, endCommitment,
     scheduleVisit, cancelVisit, checkIn, checkOut, reviewVisit, setVisitNote,

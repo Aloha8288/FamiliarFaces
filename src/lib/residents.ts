@@ -51,7 +51,7 @@ const r = (s: Seed): Resident => ({ ...blankResident(s.id, s.familyUserId ?? nul
 export const SEED_RESIDENTS: Resident[] = [
   r({
     id: 'res-margaret',
-    familyUserId: 'user-sarah',
+    familyUserId: null,
     fullName: 'Margaret Thompson',
     preferredName: 'Margaret',
     age: 84,
@@ -75,7 +75,7 @@ export const SEED_RESIDENTS: Resident[] = [
     availability: week({ 1: [PM], 2: [PM], 4: [AM], 5: [PM] }),
     preferredTimesNote: 'Afternoons after lunch are best. She naps briefly around 3:30.',
     sensory: 'Mild hearing loss in her left ear, sit on her right side.',
-    family: { name: 'Sarah Thompson', relationship: 'Daughter', email: 'sarah@familiarfaces.ca', phone: '(780) 555-0142' },
+    family: { name: 'Sarah Thompson', relationship: 'Daughter', email: 'sarah.thompson@email.com', phone: '(780) 555-0142' },
   }),
   r({
     id: 'res-harold',

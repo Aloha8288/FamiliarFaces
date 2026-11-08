@@ -49,7 +49,7 @@ export default function Settings() {
       <Modal open={confirmReset} onClose={() => setConfirmReset(false)} title="Reset App Data?"
         footer={<><Button variant="ghost" onClick={() => setConfirmReset(false)}>Cancel</Button>
           <Button variant="danger" icon={<RotateCcw className="h-4 w-4" />} onClick={() => { resetDemo(); setConfirmReset(false); navigate('/'); toast('Everything is back to the starting point.', 'info'); }}>Reset Everything</Button></>}>
-        <p className="text-[14px] text-ink-soft">This removes all new accounts, requests, commitments, and visits, and restores Alex, Sarah, and the original residents. You'll be signed out.</p>
+        <p className="text-[14px] text-ink-soft">This removes all new accounts, requests, commitments, and visits, and restores the original residents and volunteers. You'll be signed out.</p>
       </Modal>
     </div>
   );
