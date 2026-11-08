@@ -6,6 +6,6 @@ Traditional volunteering programs for elderly care exist, but they’re built ar
 
 ## Table of Contents
 
-- [Why choose FamiliarFaces?]
+- [Why choose FamiliarFaces?](#why-choose-familiarfaces)
 - [Our Features]
 - 
