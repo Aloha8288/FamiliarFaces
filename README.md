@@ -11,7 +11,8 @@ For families affected by dementia, maintaining connections can be a difficult pa
 - [Why Choose FamiliarFaces?](#why-choose-familiarfaces)
 - [Our Features](#our-features)
 - [How Our App Works](#how-our-app-works)
-
+- [Compatibility Scoring](#compatibility-score)
+- 
 
 
 ##
@@ -88,3 +89,5 @@ Student:  Sign up → Verify (VSC + training) → Build profile → Find a Compa
 Family:   Sign up → Create loved one's profile → Find a Volunteer or review requests
           → Accept → Follow visits & journal → Approve hours
 ```
+##
+## Compatibility Scoring
