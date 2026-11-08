@@ -19,7 +19,7 @@ function AuthLayout({ children }: { children: ReactNode }) {
         <div className="relative max-w-lg animate-fade-up">
           <h1 className="text-[46px] font-semibold leading-[1.1] !text-cream">Meaningful Connections.<br /><span className="text-sage-200">Familiar Faces.</span></h1>
           <p className="mt-5 text-[17px] leading-relaxed text-cream/75">
-            Student volunteers and older adults in care homes, matched for regular visits that grow into real friendships.
+            For people living with dementia, a familiar face makes all the difference. We match student volunteers with care-home residents for regular visits that build real friendships.
           </p>
         </div>
         <p className="relative font-mono text-[12px] text-cream/50">NatHacks 2026</p>
