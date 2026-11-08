@@ -27,7 +27,7 @@ import Settings from './pages/Settings';
 import NotFound from './pages/NotFound';
 
 // The single-file preview build keeps routes in memory; Netlify uses clean URLs.
-const Router = import.meta.env.MODE === 'single' ? MemoryRouter : BrowserRouter;
+const Router = MemoryRouter;
 const routerBasename = import.meta.env.MODE === 'single' ? '/' : import.meta.env.BASE_URL;
 
 const homeFor = (role: Role | null) => (role === 'family' ? '/family' : '/student');
