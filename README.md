@@ -31,13 +31,13 @@ Traditional volunteering programs for elderly care exist, but they’re built ar
 ### Onboarding for students
 A 3-step process:
 
-Step 1: Volunteer verification
+#### Step 1: Volunteer verification
 - Student needs to upload a Vulnerable Sector Check file and complete a six lesson orientation that covers dementia awareness and safety, communication, privacy, and boundaries
-Step 2: Creating a profile
+#### Step 2: Creating a profile
 - Student enters their full name, email, phone number, date of birth, school, program, school  year, and an optional profile photo
 - They then fill out their interests, personality traits, and language skills
 - Finally, they fill out their availability on a weekly schedule, customizing the times of day they are free, the number of visits per week, and the length of each visit they would prefer
-Step 3: Terms and conditions
+#### Step 3: Terms and conditions
 - Student must read the terms and conditions provided and check off the agreement box
 
 
