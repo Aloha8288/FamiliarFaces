@@ -28,4 +28,39 @@ Traditional volunteering programs for elderly care exist, but they’re built ar
 - If creating an account, you then choose a role of either **Student Volunteer** or **Family Member / Guardian**
 - If returning to the app, you would be sent straight to the dashboard
 
-### 
+### Onboarding for students
+A five-step wizard with a progress bar:
+ 
+| Step | Screen | What the student provides |
+|------|--------|---------------------------|
+| 1 | Volunteer Verification | Vulnerable Sector Check upload (PDF, JPG, PNG) and a six-lesson orientation covering dementia awareness, respectful communication, privacy, boundaries, safety, and reporting concerns |
+| 2 | Personal Information | Name, email, phone, date of birth (age calculated automatically; must be 18+), school, program, year, optional photo |
+| 3 | Interests & Languages | Interests (31 options plus custom entries), personality traits, languages with fluency levels |
+| 4 | Availability | A weekly schedule with Morning / Afternoon / Evening presets or custom time windows, visits per week, visit length |
+| 5 | Terms & Conditions | Agreement checkbox |
+
+
+
+
+### Onboarding for families
+
+
+
+
+### Finding a companion or volunteer
+
+
+
+
+
+### Companion commitment
+
+
+
+### How visits, check-ins, and hours work
+
+
+### Visit journaling
+
+
+### Maintaining privacy
