@@ -78,8 +78,8 @@ export const SEED_RESIDENTS: Resident[] = [
     family: { name: 'Sarah Thompson', relationship: 'Daughter', email: 'sarah.thompson@email.com', phone: '(780) 555-0142' },
   }),
   r({
-    id: 'res-harold',
-    fullName: 'Harold Nakamura',
+    id: 'res-faruk',
+    fullName: 'Faruk Nakamura',
     preferredName: 'Harold',
     age: 88,
     careHome: 'Riverbend Care Centre',
