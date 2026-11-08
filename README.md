@@ -27,7 +27,7 @@ Traditional volunteering programs for elderly care exist, but they’re built ar
 - Create an account or sign in with an email and password
 - If creating an account, you then choose a role of either **Student Volunteer** or **Family Member / Guardian**
 - If returning to the app, you would be sent straight to the dashboard
-
+##
 ### Onboarding for students
 A 3-step process:
 
@@ -39,9 +39,6 @@ A 3-step process:
 - Finally, they fill out their availability on a weekly schedule, customizing the times of day they are free, the number of visits per week, and the length of each visit they would prefer
 #### Step 3: Terms and conditions
 - Student must read the terms and conditions provided and check off the agreement box
-
-
-
 
 
 ### Onboarding for families
