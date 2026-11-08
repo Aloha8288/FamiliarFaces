@@ -176,7 +176,7 @@ FamiliarFaces was built in one hackathon weekend as a demo, so some parts are si
 ## Future Work
 - A real app instead of a web app
 - Collaborate with nursing homes
-- Become affiliated with the University of Alberta, as a club, in order to have valid 
+- Become affiliated with the University of Alberta, as a club, in order to have valid and approved volunteer hours
 - A real backend with secure accounts and data shared across device
 - QR or location-based check-in at the front desk of nursing homes
 
