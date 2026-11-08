@@ -11,7 +11,7 @@ For families affected by dementia, maintaining connections can be a difficult pa
 - [Why Choose FamiliarFaces?](#why-choose-familiarfaces)
 - [Our Features](#our-features)
 - [How Our App Works](#how-our-app-works)
-- [Compatibility Scoring](#compatibility-score)
+- [Compatibility Scoring](#compatibility-scoring)
 - [How To Access Or Run It](#how-to-access-or-run-it)
 - [Demo Walkthrough](#demo-walkthrough)
 - [Tech Information](#tech-information)
