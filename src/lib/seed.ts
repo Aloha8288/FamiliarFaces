@@ -29,9 +29,9 @@ const FICTIONAL_VOLUNTEERS: {
   languages: StudentProfile['languages']; interests: string[]; personality: string[];
   availability: StudentProfile['availability']; visitsPerWeek: number; duration: number;
 }[] = [
-  { key: 'amara', fullName: 'Amara Okoye', dob: '2003-09-12', university: 'University of Alberta', program: 'Psychology', year: '3rd Year',
-    languages: [{ language: 'English', fluency: 'Fluent' }, { language: 'French', fluency: 'Conversational' }],
-    interests: ['Music', 'Singing', 'Reading', 'Baking', 'Movies', 'Storytelling', 'Gardening', 'Card Games', 'Walking'],
+  { key: 'alex', fullName: 'Alex Smith', dob: '2007-01-01', university: 'University of Alberta', program: 'Nursing', year: '2nd Year',
+    languages: [{ language: 'English', fluency: 'Fluent' }, { language: 'French', fluency: 'Basic' }],
+    interests: ['Music', 'Reading', 'Baking', 'Movies', 'Storytelling', 'Gardening', 'Card Games', 'Walking'],
     personality: ['Warm', 'Talkative', 'Funny / Playful', 'Empathetic'], availability: week({ 1: [PM], 3: [PM], 5: [AM, PM] }), visitsPerWeek: 2, duration: 60 },
   { key: 'liam', fullName: 'Liam Tremblay', dob: '2004-02-03', university: 'MacEwan University', program: 'Social Work', year: '2nd Year',
     languages: [{ language: 'English', fluency: 'Fluent' }, { language: 'French', fluency: 'Fluent' }],
