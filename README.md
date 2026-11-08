@@ -12,7 +12,14 @@ For families affected by dementia, maintaining connections can be a difficult pa
 - [Our Features](#our-features)
 - [How Our App Works](#how-our-app-works)
 - [Compatibility Scoring](#compatibility-score)
-- 
+- [How To Access Or Run It](#how-to-access-or-run-it)
+- [Demo Walkthrough](#demo-walkthrough)
+- [Tech Information](#tech-information)
+- [Project Structure](#project-structure)
+- [Limitations](#limitations)
+- [Future Work](#future-work)
+- [Supporting Materials](#supporting-materials)
+- [Credits](#credits)
 
 
 ##
@@ -91,3 +98,117 @@ Family:   Sign up → Create loved one's profile → Find a Volunteer or review 
 ```
 ##
 ## Compatibility Scoring
+Every match up receives a score from 0 to 100 depending on how compatible they are. 
+- Shared interests are worth 30%
+- Preferred companion personalities are worth 25%
+- Scheduling is worth 20%
+- Shared languages are worth 15%
+- Visit preferences are worth 10%
+- Any missing information receives a neutral score of 60%, so that unfinished profiles are not automatically flagged as bad matches
+- Scoring code can be found in `src/lib/matching.ts`
+
+##
+## How To Access Or Run It
+### Open the live demo 
+ 
+Go to **[aloha8288.github.io/FamiliarFaces](https://aloha8288.github.io/FamiliarFaces/)** in a browser, on a computer or a phone. No install or account setup is needed: any email and password creates an account.
+
+##
+### Deployment
+ 
+The live site is published with GitHub Pages using the workflow in `.github/workflows/`. Each push to the main branch rebuilds and republishes the site.
+
+##
+## Demo Walkthrough
+There are no premade accounts. Any email and password creates one.
+ 
+1. **Create Account** → **Student Volunteer** → complete verification, your profile, and the terms.
+2. **Find a Companion**: Margaret is shown first. Click **Request Companion**.
+3. On **My Commitment**, click **Simulate Acceptance**. The Companion Commitment begins.
+4. **Visits & Hours** → pick a suggested time → **Schedule**, then **Check In**, fill in the journal, and **Check Out & Log Visit**. The commitment bar shows **1 of 2 visits (50%)**.
+5. In the Completed list, click **Simulate Approval** to approve the hours.
+6. Sign out, create an account as **Family Member / Guardian**, and set up a loved one. **Find a Volunteer** → **Invite** → **Simulate Acceptance**.
+7. **Account Settings → Reset App Data** starts everything over.
+
+##
+## Tech Information
+
+| Layer | Technology |
+|-------|-----------|
+| Framework | React 19 + TypeScript |
+| Build | Vite |
+| Styling | Tailwind CSS 4 |
+| Routing | React Router 7 |
+| Icons | Lucide |
+| Fonts | Fredoka (headings) and Inter (body), via Fontsource |
+| Data | Browser `localStorage` (no backend or API keys) |
+| Hosting | GitHub Pages |
+
+##
+## Project Structure
+```
+src/
+├── App.tsx            # Routes and sign-in / onboarding checks
+├── main.tsx           # App entry point
+├── index.css          # Colour theme and base styles
+├── components/        # Shared pieces: sidebar, cards, buttons, journal, schedule editor
+├── lib/
+│   ├── matching.ts    # Compatibility scoring
+│   ├── store.tsx      # App data and actions, saved in the browser
+│   ├── residents.ts   # Fictional resident profiles
+│   ├── seed.ts        # Starting data and fictional volunteers
+│   └── ...            # Types, options lists, date and time helpers
+└── pages/
+    ├── student/       # Student screens
+    ├── family/        # Family screens
+    └── ...            # Sign-in, role choice, settings, support
+```
+
+##
+## Limitations
+FamiliarFaces was built in one hackathon weekend as a demo, so some parts are simulated:
+- Sign in is not secure
+- VSC uploads are not verified, so no background check is actually being done
+- Simulate buttons are stand ins for the other side, so the patients and volunteers are not real and acceptances are simulated
+- Data is kept on one device
+
+##
+## Future Work
+- A real app instead of a web app
+- A real backend with secure accounts and data shared across device
+- QR or location-based check-in at the front desk of nursing homes
+
+##
+## Supporting Materials
+
+| Material | Link |
+|----------|------|
+| 🌐 Demo link | [aloha8288.github.io/FamiliarFaces](https://aloha8288.github.io/FamiliarFaces/) |
+| 📊 Presentation slides | [View slides](https://your-slides-link) |
+| 💻 Source code | [github.com/Aloha8288/FamiliarFaces](https://github.com/Aloha8288/FamiliarFaces) |
+
+##
+## Credits
+### Team
+Addison Van Oostrom
+Adria Ybema
+Lainey Choma
+Madeleine Wilson
+Mariya Fedorova
+##
+### Open-Source Tools
+ 
+- [React](https://react.dev), [TypeScript](https://www.typescriptlang.org), and [Vite](https://vite.dev)
+- [Tailwind CSS](https://tailwindcss.com) for styling
+- [React Router](https://reactrouter.com) for navigation
+- [Lucide](https://lucide.dev) icons
+- [Fredoka](https://fonts.google.com/specimen/Fredoka) and [Inter](https://rsms.me/inter/) fonts, via [Fontsource](https://fontsource.org)
+- Hosted on [GitHub Pages](https://pages.github.com)
+##
+### Development Assistance
+ 
+Code was written with help from Claude (Anthropic), an AI assistant, during the hackathon.
+## 
+### Content
+ 
+All residents, volunteers, and families in the app are fictional. 
