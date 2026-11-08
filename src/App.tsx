@@ -1,4 +1,4 @@
-import { BrowserRouter, MemoryRouter, Navigate, Route, Routes, Outlet } from 'react-router-dom';
+import { MemoryRouter, Navigate, Route, Routes, Outlet } from 'react-router-dom';
 import type { ReactNode } from 'react';
 import { StoreProvider, useStore } from './lib/store';
 import type { Role } from './lib/types';
