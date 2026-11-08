@@ -186,7 +186,7 @@ FamiliarFaces was built in one hackathon weekend as a demo, so some parts are si
 | Material | Link |
 |----------|------|
 | 🌐 Demo link | [aloha8288.github.io/FamiliarFaces](https://aloha8288.github.io/FamiliarFaces/) |
-| 📊 Presentation slides | [View slides](https://your-slides-link) |
+| 📊 Presentation slides | [View slides](https://canva.link/a1fc907wcg1ij14)
 | 💻 Source code | [github.com/Aloha8288/FamiliarFaces](https://github.com/Aloha8288/FamiliarFaces) |
 
 ##
