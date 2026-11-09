@@ -190,7 +190,7 @@ FamiliarFaces was built in one hackathon weekend as a demo, so some parts are si
 | 💻 Source code | [github.com/Aloha8288/FamiliarFaces](https://github.com/Aloha8288/FamiliarFaces) |
 | 📹 Demo video | [View video](https://www.youtube.com/watch?v=LUbTO9jyi-c&feature=youtu.be) |
 | 📄 Project Summary | [View document](https://docs.google.com/document/d/18UrK4XSkJEBEnwKDiRUUaRvOKOgFjEfRvmnek2kDW0E/edit?usp=sharing) |
-| 📄 About the Project | [[View document](https://docs.google.com/document/d/1fpOlxZo4FluQJYKKxby6Cs2kSX9NI-U6FUOBeNzlWes/edit?usp=sharing)|
+| 📄 About the Project | [View document](https://docs.google.com/document/d/1fpOlxZo4FluQJYKKxby6Cs2kSX9NI-U6FUOBeNzlWes/edit?usp=sharing)|
 
 ##
 ## Credits
